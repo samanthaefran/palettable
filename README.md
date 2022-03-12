@@ -10,6 +10,6 @@ Palettable is created with the socially conscious consumer in mind.Users are emp
 With a personal account, users can save products they love, quickly purchase items, and build out full face looks with their own “glam-board”. 
 
 ## Wireframes
-![Landing Page](url)  
+![Landing Page]("https://imgur.com/li83uev")  
 ![Wireframe 2](url)  
 ![Wireframe 3](url)  
