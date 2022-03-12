@@ -35,4 +35,7 @@ class Color(models.Model):
         managed = False
         db_table = 'color'
 
+    def __str__(self):
+        return f'{self.hex_value} {self.colour_name}'
+
 
