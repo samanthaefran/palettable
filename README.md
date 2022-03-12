@@ -1,5 +1,6 @@
 # Palettable #
 
+## Makeup personalized for the socially conscious
 
 __Why Palettable?__
 
