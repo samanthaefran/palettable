@@ -13,7 +13,7 @@ def products(request):
   return render(request, 'products.html')
 
 def products_index(request, product_type):
-  products_list = Product.objects.filter(tags__contains=product_type)
+  products_list = Product.objects.filter(tags__icontains=product_type)
   return render(request, 'products_index.html', {'products': products_list})
 
 def products_detail(request, id):
