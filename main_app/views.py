@@ -4,7 +4,7 @@ from .models import Product, Color
 # Create your views here.
 
 def home(request):
-  return HttpResponse('it works')
+  return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
