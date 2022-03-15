@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for product in product %}
+<div class="card">
+    <div class="card-content">
+       <span class="card-title">{{product.product_name}}</span>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
