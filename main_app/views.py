@@ -1,7 +1,27 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import Product, Color
-from django.views.generic import ListView
 # Create your views here.
 
-class ProductIndex(ListView):
-  model = Product
+def home(request):
+  return render(request, 'home.html')
+
+def about(request):
+  return render(request, 'about.html')
+
+def all_products(request):
+  return render(request, 'product_list.html')
+
+def products_index_by_tag(request, product_tag):
+  products_list = None
+  if product_tag == 'Vegan':
+      products_list = Product.objects.filter(tags__contains=product_tag)
+  elif product_tag == 'Cruelty Free':
+      products_list = Product.objects.filter(tags__contains=product_tag)
+  elif product_tag == 'Natural' or product_tag == 'natural':
+      products_list == Product.objects.filter(tags__contains=product_tag)
+      return render(request, 'products_index.html', {'product': products_list})
+
+def products_detail(request, id):
+  product = Product.objects.get(id=id)
+  return render(request, 'product_detail.html', {'product': product})
