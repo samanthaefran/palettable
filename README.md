@@ -10,6 +10,23 @@ Palettable is created with the socially conscious consumer in mind.Users are emp
 With a personal account, users can save products they love, quickly purchase items, and build out full face looks with their own “glam-board”. 
 
 ## Wireframes
-![Landing Page](https://i.imgur.com/li83uev.png)  
-![Wireframe 2](url)  
-![Wireframe 3](url)  
+![Landing Page](https://i.imgur.com/5VaCNPc.png)  
+
+## Screenshots
+![Screenshot 1](url)  
+![Screenshot 2](url)  
+
+
+## Technologies Used
+- Django
+- PostgreSQL
+- Heroku for Deployment
+- HTML 5
+- CSS
+- Python
+
+## Future Enhancements
+- Users will be able to share looks with friends 
+- Users will be able to upload photos for the purpose of creating reviews for products used
+
+Ready to shop with a conscious mind? [Click here to shop Palettable](url)
