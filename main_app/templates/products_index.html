@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% for product in product %}
 <div class="card">
     <div class="card-content">
-       {% for product in object_list %}
-       <p>{{product.product_name}}</p>
-       {% endfor %}
+       <span class="card-title">{{product.product_name}}</span>
     </div>
 </div>
-
+{% endfor %}
 {% endblock %}

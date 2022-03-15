@@ -13,13 +13,12 @@ def all_products(request):
   return render(request, 'product_list.html')
 
 def products_index_by_tag(request, product_tag):
-  products_list = None
   if product_tag == 'Vegan':
-      products_list = Product.objects.filter(tags__contains=product_tag)
+      products_list = Product.objects.filter(tags__icontains=product_tag)
   elif product_tag == 'Cruelty Free':
-      products_list = Product.objects.filter(tags__contains=product_tag)
+      products_list = Product.objects.filter(tags__icontains=product_tag)
   elif product_tag == 'Natural' or product_tag == 'natural':
-      products_list == Product.objects.filter(tags__contains=product_tag)
+      products_list = Product.objects.filter(tags__icontains=product_tag)
       return render(request, 'products_index.html', {'product': products_list})
 
 def products_detail(request, id):
