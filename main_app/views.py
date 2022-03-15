@@ -15,9 +15,10 @@ def all_products(request):
 def products_index_by_tag(request, product_tag):
   if product_tag == 'Vegan':
       products_list = Product.objects.filter(tags__icontains=product_tag)
-  elif product_tag == 'Cruelty Free':
-      products_list = Product.objects.filter(tags__icontains=product_tag)
-  elif product_tag == 'Natural' or product_tag == 'natural':
+  elif product_tag == 'cruelty-free' or product_tag == 'cruelty free':
+      sanitized_product_tag = product_tag.replace('-', ' ')
+      products_list = Product.objects.filter(tags__icontains=sanitized_product_tag)
+  elif product_tag == 'natural':
       products_list = Product.objects.filter(tags__icontains=product_tag)
       return render(request, 'products_index.html', {'product': products_list})
 
