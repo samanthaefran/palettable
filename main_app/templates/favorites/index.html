@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Favorites List</h1>
+
+{% for favorite in object_list %}
+<div class="card">
+    <a href="{PLACEHOLDER FOR FAVORITE DETAIL?}">
+        <div class="card-content">
+            <span class="card-title">{{ favorite.product_name }}</span>
+        </div>
+    </a>
+</div>
+{% endfor %}
+
+{% endblock %}
