@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="card">
-        <a href="/products/natural">Natural</a>
+<div class="container">
+    <div class="row">
+        <div class="col s4">
+            <img src="http://s3.amazonaws.com/donovanbailey/products/api_featured_images/000/001/031/original/open-uri20180630-4-1axfay6?1530390380"
+                width="50%" alt="Vegan">
+            <br />
+            <a href="/products/Vegan">Vegan</a>
+        </div>
+        <div class="col s4">
+            <img src="http://s3.amazonaws.com/donovanbailey/products/api_featured_images/000/000/071/original/open-uri20171223-4-1b53nbg?1514062255"
+                width="50%" alt="Cruelty-Free">
+            <br />
+            <a href="/products/cruelty-free">Cruelty-Free</a>
+        </div>
+        <div class="col s4">
+            <img src="http://s3.amazonaws.com/donovanbailey/products/api_featured_images/000/000/283/original/data?1514063293"
+                width="50%" alt="Natural">
+            <br />
+            <a href="/products/natural">Natural</a>
+        </div>
     </div>
-    <div class="card">
-        <a href="/products/vegan">Vegan</a>
-    </div>
-    <div class="card">
-        <a href="/products/cruelty-free">Cruelty Free</a>
-    </div>
+</div>
 </div>
 {% endblock %}
