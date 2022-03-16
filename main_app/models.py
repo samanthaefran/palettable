@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here:
 class Product(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
@@ -33,4 +32,6 @@ class Color(models.Model):
     def __str__(self):
         return f'{self.hex_value} {self.colour_name}'
 
-
+# class Favorite(models.Model):
+#     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+#     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
