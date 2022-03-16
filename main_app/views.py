@@ -22,4 +22,5 @@ def products_index_by_tag(request, product_tag):
 
 def products_detail(request, id):
   product = Product.objects.get(id=id)
-  return render(request, 'product_detail.html', {'product': product})
+  colors = Color.objects.filter(product=id)
+  return render(request, 'product_detail.html', {'product': product}, {'colors': colors})
