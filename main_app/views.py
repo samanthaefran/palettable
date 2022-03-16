@@ -1,5 +1,7 @@
 from django.shortcuts import redirect, render
-from .models import Product, Color
+from .models import Product, Color, Favorite
+from django.views.generic import ListView
+from django.views.generic.edit import DeleteView
 # Create your views here.
 
 def home(request):
@@ -24,3 +26,12 @@ def products_detail(request, id):
   product = Product.objects.get(id=id)
   colors = Color.objects.filter(product=id)
   return render(request, 'product_detail.html', {'product': product}, {'colors': colors})
+
+class FavoriteList(ListView):
+  model = Favorite
+  template_name = 'favorites/index.html'
+
+
+class FavoriteDelete(DeleteView):
+  model = Favorite
+  success_url = '/favorites/'
