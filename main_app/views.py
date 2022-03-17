@@ -28,9 +28,9 @@ def products_index_by_tag(request, product_tag):
 
 def products_detail(request, id):
   product = Product.objects.get(id=id)
-  colors = Color.objects.filter(product=id)
-  return render(request, 'product_detail.html', {'product': product}, {'colors': colors})
-
+  # colors = Color.objects.filter(product=id)
+  return render(request, 'products/detail.html', {'product': product})
+# colors = Color.objects.filter(product=id) - right now we are not pulling color somehow? it breaks the file as of now.
 
 
 def delete_favorite(request, id):
@@ -52,6 +52,7 @@ def signup(request):
   context = { 'form': form, 'error': error_message }
   return render(request, 'registration/signup.html', {'form': form, 'error': error_message})
 
+<<<<<<< HEAD
 def add_favorite(request, id):
   Product.objects.get(id=id).users.add(request.user)
   return redirect('home')
@@ -63,4 +64,14 @@ class FavoriteCreate(CreateView):
 
 class FavoriteList(ListView):
   pass
+=======
+class FavoriteList(ListView):
+  model = Favorite
+  template_name = 'favorites/index.html'
+
+
+class FavoriteDelete(DeleteView):
+  model = Favorite
+  success_url = '/favorites/'
+>>>>>>> c8ac5ac99809871cdb6eb6d34c29972c39a1b786
 

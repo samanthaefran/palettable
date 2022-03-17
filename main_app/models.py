@@ -31,4 +31,9 @@ class Color(models.Model):
         return f'{self.hex_value} {self.colour_name}'
 
 class Favorite(models.Model):
+<<<<<<< HEAD
     product = models.ManyToManyField(Product)
+=======
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+>>>>>>> c8ac5ac99809871cdb6eb6d34c29972c39a1b786
