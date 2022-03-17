@@ -1,10 +1,10 @@
 from django.shortcuts import redirect, render
-from .models import Product, Color
+from .models import Product, Color, Favorite
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.views.generic import ListView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import CreateView, DeleteView
 
 # Create your views here.
 
@@ -32,6 +32,12 @@ def products_detail(request, id):
   return render(request, 'product_detail.html', {'product': product}, {'colors': colors})
 
 
+
+def delete_favorite(request, id):
+  # Product.objects.get(id).users.remove(fk)
+  # return redirect('home')
+  pass
+
 def signup(request):
   error_message = ''
   if request.method == 'POST':
@@ -46,12 +52,15 @@ def signup(request):
   context = { 'form': form, 'error': error_message }
   return render(request, 'registration/signup.html', {'form': form, 'error': error_message})
 
-# class FavoriteList(ListView):
-#   model = Favorite
-#   template_name = 'favorites/index.html'
+def add_favorite(request, id):
+  Product.objects.get(id=id).users.add(request.user)
+  return redirect('home')
+
+class FavoriteCreate(CreateView):
+  model = Favorite
+  fields = ('product', 'user')
 
 
-# class FavoriteDelete(DeleteView):
-#   model = Favorite
-#   success_url = '/favorites/'
+class FavoriteList(ListView):
+  pass
 
