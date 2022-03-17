@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import Product, Color
+from .models import Product, Color, Favorite
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
