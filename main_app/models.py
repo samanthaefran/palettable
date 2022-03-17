@@ -1,13 +1,7 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from django.contrib.auth.models import User
 
+# Create your models here:
 class Product(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
     brand = models.CharField(max_length=150)
@@ -36,4 +30,6 @@ class Color(models.Model):
     def __str__(self):
         return f'{self.hex_value} {self.colour_name}'
 
-
+# class Favorite(models.Model):
+#     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+#     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
