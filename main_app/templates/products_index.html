@@ -2,15 +2,16 @@
 
 {% block content %}
 {% for product in product %}
-<div class="row col s6">
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{product.product_name}}</span>
-            <p><img src="{{product.image_link}}"/></p>
-            <p>{{product.brand}}</p>
-            <p>$ {{product.price}}</p>
+    <div class="card">  
+        <a href="{% url 'products_detail' product.id %}">
+            <div class="card-content">
+                <span class="card-title">{{product.product_name}}</span>
+                <p><img src="{{product.image_link}}" /></p>
+                <p>{{product.brand}}</p>
+                <p>$ {{product.price}}</p>
+                <a class="waves-effect waves-teal btn-flat">Soon To Be ♡</a>
+            </a>
         </div>
     </div>
-</div>
 {% endfor %}
 {% endblock %}

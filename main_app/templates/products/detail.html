@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h4>{{ product.product_name }}</h4>
+<img src="{{product.image_link}}" width="50%" alt="{{product_name}}">
+<li>{{product.brand}}</li>
+<li>$ {{product.price}}</li>
+<li>{{product.product_description}}</li>
+<a href="{{product.website_link}}" class="waves-effect waves-teal btn-flat">Purchase</a>
+<a class="waves-effect waves-teal btn-flat">Soon To Be ♡</a>
+
+<article> More Details:</article>
+<li>Product type: {{product.product_type}}</li>
+<li>Product Category: {{product.tags}}</li>
+
+{% endblock %}
