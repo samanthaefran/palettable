@@ -18,11 +18,7 @@ class Product(models.Model):
     image_link = models.CharField(max_length=1000)
     product_description = models.CharField(max_length=4000)
     product_type = models.CharField(max_length=150)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    class Meta:
-        managed = False
-        db_table = 'product'
+    users = models.ManyToManyField(User)
 
     def __str__(self):
         return f'{self.product_name} by {self.brand}'

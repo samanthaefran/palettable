@@ -1,5 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Product, Color
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 # Create your views here.
 
 def home(request):
@@ -24,3 +26,17 @@ def products_detail(request, id):
   product = Product.objects.get(id=id)
   colors = Color.objects.filter(product=id)
   return render(request, 'product_detail.html', {'product': product}, {'colors': colors})
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('home')
+    else:
+      error_message = 'Invalid Sign Up - Please Try Again'
+  form = UserCreationForm()
+  context = { 'form': form, 'error': error_message }
+  return render(request, 'registration/signup.html', {'form': form, 'error': error_message})
