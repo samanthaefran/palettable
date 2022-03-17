@@ -10,3 +10,4 @@ urlpatterns = [
 
   # path('favorites/', views.FavoriteList.as_view(), name='favorites_index'),
   # path('favorites/<int:id>/delete', views.FavoriteDelete.as_view(), name='favorites_delete'),
+]
