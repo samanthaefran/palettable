@@ -8,8 +8,9 @@
 <li>$ {{product.price}}</li>
 <li>{{product.product_description}}</li>
 <a href="{{product.website_link}}" class="waves-effect waves-teal btn-flat">Purchase</a>
-<a class="waves-effect waves-teal btn-flat">Soon To Be ♡</a>
-
+{% if user.is_authenticated %}
+<a href="{% url 'favorite_add' product.id user.id %}" class="waves-effect waves-teal btn-flat">Soon To Be ♡</a>
+{% endif %}
 <article> More Details:</article>
 <li>Product type: {{product.product_type}}</li>
 <li>Product Category: {{product.tags}}</li>

@@ -13,6 +13,7 @@ class Product(models.Model):
     product_description = models.CharField(max_length=4000)
     product_type = models.CharField(max_length=150)
     users = models.ManyToManyField(User)
+    favorites = models.ManyToManyField(User, related_name='favorite', default=None, blank=True)
 
     def __str__(self):
         return f'{self.product_name} by {self.brand}'
@@ -30,10 +31,6 @@ class Color(models.Model):
     def __str__(self):
         return f'{self.hex_value} {self.colour_name}'
 
-class Favorite(models.Model):
-<<<<<<< HEAD
-    product = models.ManyToManyField(Product)
-=======
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
->>>>>>> c8ac5ac99809871cdb6eb6d34c29972c39a1b786
+# class Favorite(models.Model):
+#     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+#     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)

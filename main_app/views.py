@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import Product, Color, Favorite
+from .models import Product, Color
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
@@ -30,13 +30,7 @@ def products_detail(request, id):
   product = Product.objects.get(id=id)
   # colors = Color.objects.filter(product=id)
   return render(request, 'products/detail.html', {'product': product})
-# colors = Color.objects.filter(product=id) - right now we are not pulling color somehow? it breaks the file as of now.
-
-
-def delete_favorite(request, id):
-  # Product.objects.get(id).users.remove(fk)
-  # return redirect('home')
-  pass
+  # colors = Color.objects.filter(product=id) - right now we are not pulling color somehow? it breaks the file as of now.
 
 def signup(request):
   error_message = ''
@@ -52,26 +46,18 @@ def signup(request):
   context = { 'form': form, 'error': error_message }
   return render(request, 'registration/signup.html', {'form': form, 'error': error_message})
 
-<<<<<<< HEAD
-def add_favorite(request, id):
-  Product.objects.get(id=id).users.add(request.user)
+def favorite_add(request, id, user_id):
+  Product.objects.get(id=id).favorites.add(request.user)
   return redirect('home')
 
-class FavoriteCreate(CreateView):
-  model = Favorite
-  fields = ('product', 'user')
+def favorite_remove(request, id, user_id):
+  Product.objects.get(id=id).favorites.remove(request.user)
+  return redirect('home')
+
+def favorite_list(request, user_id):
+  favorites = Product.objects.filter(favorites=request.user)
+  return render(request, 'favorites/index.html', {'favorites': favorites})
 
 
-class FavoriteList(ListView):
-  pass
-=======
-class FavoriteList(ListView):
-  model = Favorite
-  template_name = 'favorites/index.html'
 
-
-class FavoriteDelete(DeleteView):
-  model = Favorite
-  success_url = '/favorites/'
->>>>>>> c8ac5ac99809871cdb6eb6d34c29972c39a1b786
 

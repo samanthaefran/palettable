@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Favorites List</h1>
-
-{% for favorite in object_list %}
-<div class="card">
-    <a href="{PLACEHOLDER FOR FAVORITE DETAIL?}">
-        <div class="card-content">
-            <span class="card-title">{{ favorite.product_name }}</span>
+<h1>{{user.username}}</h1>
+<h2>{{product.product_name}}</h2>
+{% for product in favorites %}
+    <div class="card">  
+        <a href="{% url 'products_detail' product.id %}">
+            <div class="card-content">
+                <span class="card-title">{{product.product_name}}</span>
+                <p><img src="{{product.image_link}}" style="width:50%" /></p>
+                <p>{{product.brand}}</p>
+                <p>$ {{product.price}}</p>
+            </a>
+            <a href="{% url 'favorite_remove' product.id user.id %}" class="waves-effect waves-teal btn-flat">Remove 💔</a>
         </div>
-    </a>
-</div>
+    </div>
 {% endfor %}
-
 {% endblock %}
