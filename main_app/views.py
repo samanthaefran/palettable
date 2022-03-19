@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.http import HttpResponseRedirect
 from .models import Product, Color
 
 from django.contrib.auth.forms import UserCreationForm
@@ -28,9 +29,8 @@ def products_index_by_tag(request, product_tag):
 
 def products_detail(request, id):
   product = Product.objects.get(id=id)
-  # colors = Color.objects.filter(product=id)
-  return render(request, 'products/detail.html', {'product': product})
-  # colors = Color.objects.filter(product=id) - right now we are not pulling color somehow? it breaks the file as of now.
+  colors = Color.objects.filter(product=id)
+  return render(request, 'products/detail.html', {'product': product, 'colors': colors})
 
 def signup(request):
   error_message = ''
@@ -48,11 +48,13 @@ def signup(request):
 
 def favorite_add(request, id, user_id):
   Product.objects.get(id=id).favorites.add(request.user)
-  return redirect('home')
+  # return redirect('home')
+  return redirect(request.META['HTTP_REFERER'])
 
 def favorite_remove(request, id, user_id):
   Product.objects.get(id=id).favorites.remove(request.user)
-  return redirect('home')
+  # return redirect('home')
+  return redirect(request.META['HTTP_REFERER'])
 
 def favorite_list(request, user_id):
   favorites = Product.objects.filter(favorites=request.user)
