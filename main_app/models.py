@@ -6,7 +6,7 @@ class Product(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
     brand = models.CharField(max_length=150)
     product_name = models.CharField(max_length=150)
-    price = models.DecimalField(max_digits=65535, decimal_places=65535)
+    price = models.DecimalField(max_digits=1000, decimal_places=2)
     website_link = models.CharField(max_length=150)
     tags = models.CharField(max_length=150)
     image_link = models.CharField(max_length=1000)

@@ -10,7 +10,7 @@
                 <p>{{product.brand}}</p>
                 <p>$ {{product.price}}</p>
                 {% if user.is_authenticated %}
-                <a href="{% url 'favorite_add' product.id user.id %}" class="waves-effect waves-teal btn-flat">Soon To Be ♡</a>
+                <a href="{% url 'favorite_add' product.id user.id %}" i class="small material-icons">favorite_border</a>
                 {% endif %}
             </a>
         </div>
