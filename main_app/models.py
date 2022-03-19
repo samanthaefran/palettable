@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 # Create your models here:
@@ -6,7 +7,7 @@ class Product(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
     brand = models.CharField(max_length=150)
     product_name = models.CharField(max_length=150)
-    price = models.DecimalField(max_digits=1000, decimal_places=2)
+    price = models.DecimalField(max_digits=65535, decimal_places=65535)
     website_link = models.CharField(max_length=150)
     tags = models.CharField(max_length=150)
     image_link = models.CharField(max_length=1000)
@@ -31,6 +32,12 @@ class Color(models.Model):
     def __str__(self):
         return f'{self.hex_value} {self.colour_name}'
 
-# class Favorite(models.Model):
-#     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-#     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+class Look(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=300)
+    products = models.ManyToManyField(Product)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
+    
