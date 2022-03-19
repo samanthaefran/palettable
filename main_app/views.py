@@ -1,10 +1,10 @@
 from django.shortcuts import redirect, render
-from .models import Product, Color, Favorite
+from .models import Product, Color
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.views.generic import ListView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import CreateView, DeleteView
 
 # Create your views here.
 
@@ -46,12 +46,14 @@ def signup(request):
   context = { 'form': form, 'error': error_message }
   return render(request, 'registration/signup.html', {'form': form, 'error': error_message})
 
-class FavoriteList(ListView):
-  model = Favorite
-  template_name = 'favorites/index.html'
+def favorite_add(request, id, user_id):
+  Product.objects.get(id=id).favorites.add(request.user)
+  return redirect('home')
 
+def favorite_remove(request, id, user_id):
+  Product.objects.get(id=id).favorites.remove(request.user)
+  return redirect('home')
 
-class FavoriteDelete(DeleteView):
-  model = Favorite
-  success_url = '/favorites/'
-
+def favorite_list(request, user_id):
+  favorites = Product.objects.filter(favorites=request.user)
+  return render(request, 'favorites/index.html', {'favorites': favorites})
