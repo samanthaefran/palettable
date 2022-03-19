@@ -9,7 +9,9 @@
 <li>{{product.product_description}}</li>
 <a href="{{product.website_link}}" class="waves-effect waves-teal btn-flat">Purchase</a>
 <a class="waves-effect waves-teal btn-flat">Soon To Be ♡</a>
-
+{% for color in colors %}
+<li>{{color.hex_value}}</li>
+{% endfor %}
 <article> More Details:</article>
 <li>Product type: {{product.product_type}}</li>
 <li>Product Category: {{product.tags}}</li>
