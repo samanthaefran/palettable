@@ -1,10 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{user.username}}</h1>
-<h2>{{product.product_name}}</h2>
+<h1>{{user.username}}'s Favorites</h1>
 {% for product in favorites %}
-    <div class="card">  
+<div class="row">
+    <div class="col s12 m7">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{product.image_link}}" alt="{{product.product_name}}">
+                <span class="card-title">{{product.product_name}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{product.brand}}</p>
+                <p>$ {{product.price}}</p>
+                <!-- <p>{{product.product_description}}</p> -->
+            </div>
+            <div class="card-action">
+                <a href="{% url 'favorite_remove' product.id user.id %}" class="waves-effect waves-teal btn-flat">Remove 💔</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- <div class="card">  
         <a href="{% url 'products_detail' product.id %}">
             <div class="card-content">
                 <span class="card-title">{{product.product_name}}</span>
@@ -14,6 +31,6 @@
             </a>
             <a href="{% url 'favorite_remove' product.id user.id %}" class="waves-effect waves-teal btn-flat">Remove 💔</a>
         </div>
-    </div>
+    </div> -->
 {% endfor %}
 {% endblock %}
