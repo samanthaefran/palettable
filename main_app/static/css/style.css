@@ -11,3 +11,13 @@ main {
 footer {
     text-align: right;
 }
+
+.row, .col.m7 {
+    display: flex;
+    width: 100%;
+    margin-left: 0px;
+}
+
+.card {
+    max-width: 200px;
+}
