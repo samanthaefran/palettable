@@ -1,1 +1,1 @@
-web: gunicorn palettable.wsgi
+web: gunicorn palletable.wsgi
