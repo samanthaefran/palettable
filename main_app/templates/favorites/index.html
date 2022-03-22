@@ -6,6 +6,7 @@
 {% for product in favorites %}
     <div class="col s12 m4">
         <div class="card">
+            <a href="{% url 'products_detail' product.id %}">
             <div class="card-image">
                 <img src="{{product.image_link}}" alt="{{product.product_name}}">
                 <a href="{% url 'favorite_remove' product.id user.id %}" class="btn-floating halfway-fab waves-effect waves-light deep-orange lighten-3" style="align-content:right !important"><i class="small material-icons">remove_circle_outline</i></a>
@@ -15,6 +16,7 @@
                 <p>{{product.brand}}</p>
                 <!-- <p>{{product.product_description}}</p> -->
             </div>
+        </a>
         </div>
     </div>
     {% endfor %}
