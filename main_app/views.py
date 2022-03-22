@@ -1,10 +1,5 @@
 from django.shortcuts import redirect, render
-<<<<<<< HEAD
-from django.http import HttpResponseRedirect
-from .models import Product, Color
-=======
 from .models import Product, Color, Look
->>>>>>> 80b2c1aed5c48f1e4db43d9c4d921d25d4835b2e
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
@@ -35,10 +30,6 @@ def products_detail(request, id):
   product = Product.objects.get(id=id)
   colors = Color.objects.filter(product=id)
   return render(request, 'products/detail.html', {'product': product, 'colors': colors})
-<<<<<<< HEAD
-=======
-
->>>>>>> 80b2c1aed5c48f1e4db43d9c4d921d25d4835b2e
 
 def signup(request):
   error_message = ''
@@ -56,12 +47,10 @@ def signup(request):
 
 def favorite_add(request, id, user_id):
   Product.objects.get(id=id).favorites.add(request.user)
-  # return redirect('home')
   return redirect(request.META['HTTP_REFERER'])
 
 def favorite_remove(request, id, user_id):
   Product.objects.get(id=id).favorites.remove(request.user)
-  # return redirect('home')
   return redirect(request.META['HTTP_REFERER'])
 
 def favorite_list(request, user_id):
