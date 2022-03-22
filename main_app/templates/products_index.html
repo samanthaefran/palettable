@@ -10,7 +10,11 @@
                 <p>{{product.brand}}</p>
                 <p>$ {{product.price}}</p>
                 {% if user.is_authenticated %}
+<<<<<<< HEAD
                 <a href="{% url 'favorite_add' product.id user.id %}" class="waves-effect waves-teal btn-flat">Add to Favorites ♡</a>
+=======
+                <a href="{% url 'favorite_add' product.id user.id %}" i class="small material-icons">favorite_border</a>
+>>>>>>> 80b2c1aed5c48f1e4db43d9c4d921d25d4835b2e
                 {% endif %}
             </a>
         </div>

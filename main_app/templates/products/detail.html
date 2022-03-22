@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<<<<<<< HEAD
 
 <h4>{{ product.product_name }}</h4>
 <img src="{{product.image_link}}" width="50%" alt="{{product_name}}">
@@ -20,4 +21,28 @@
 <span class="circle"><p class="{{ color.hex_value }}-text">{{color.colour_name}}</p></span>
 
 {% endfor %}
+=======
+<h5>{{ product.product_name }}</h5>
+<br />
+<div class="row">
+  <div class="col s6">
+    <img src="{{product.image_link}}" width="40%" alt="{{product_name}}">
+  </div>
+      <div class="col s6">
+        <li style="list-style-type: none;"> {{product.brand}}</li>
+        <li style="list-style-type: none;">$ {{product.price}}</li>
+        <li style="list-style-type: none;">{{product.product_description}}</li>
+        <br />
+        <a href="{{product.website_link}}" class="waves-effect waves-teal btn-flat">Purchase</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'favorite_add' product.id user.id %}" i class="small material-icons">favorite_border</a>
+        {% endif %}
+        <br />
+        <br />
+        <article> More Details:</article>
+        <li style="list-style-type: none;">Product type: {{product.product_type}}</li>
+        <li style="list-style-type: none;">Product Category: {{product.tags}}</li>
+  </div>
+</div>
+>>>>>>> 80b2c1aed5c48f1e4db43d9c4d921d25d4835b2e
 {% endblock %}
