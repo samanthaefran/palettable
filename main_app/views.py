@@ -31,7 +31,6 @@ def products_detail(request, id):
   colors = Color.objects.filter(product=id)
   return render(request, 'products/detail.html', {'product': product, 'colors': colors})
 
-
 def signup(request):
   error_message = ''
   if request.method == 'POST':
@@ -48,11 +47,11 @@ def signup(request):
 
 def favorite_add(request, id, user_id):
   Product.objects.get(id=id).favorites.add(request.user)
-  return redirect('home')
+  return redirect(request.META['HTTP_REFERER'])
 
 def favorite_remove(request, id, user_id):
   Product.objects.get(id=id).favorites.remove(request.user)
-  return redirect('home')
+  return redirect(request.META['HTTP_REFERER'])
 
 def favorite_list(request, user_id):
   favorites = Product.objects.filter(favorites=request.user)
