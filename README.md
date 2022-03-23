@@ -10,12 +10,17 @@ Palettable is created with the socially conscious consumer in mind.Users are emp
 With a personal account, users can save products they love, quickly purchase items, and build out full face looks with their own “glam-board”. 
 
 ## Wireframes
-![Landing Page](https://i.imgur.com/5VaCNPc.png)  
+![Home Page](https://i.imgur.com/li83uev.png) 
+![Login Page](https://i.imgur.com/xQVsN6N.png)  
+![Products Index](https://i.imgur.com/z9ZwvHH.png)  
+![Product Details](https://i.imgur.com/CmUeKls.png)
 
 ## Screenshots
-![Home Page](https://i.imgur.com/kKx9Oar.png)
-![Login Page](https://i.imgur.com/2JxwdD2.png)
-![Products Index](https://i.imgur.com/h6ekJZz.png)
+![Home Page](https://i.imgur.com/kKx9Oar.png)  
+![Login Page](https://i.imgur.com/2JxwdD2.png)  
+![Products Index](https://i.imgur.com/h6ekJZz.png)  
+![Product Details](https://i.imgur.com/1uqmOSw.png)  
+![Looks Details](https://i.imgur.com/BYka5qg.png)
 
 ## Technologies Used
 - Django
