@@ -13,9 +13,9 @@ With a personal account, users can save products they love, quickly purchase ite
 ![Landing Page](https://i.imgur.com/5VaCNPc.png)  
 
 ## Screenshots
-![Home Page](https://i.imgur.com/cKmdIXf.png)
-![Log In Page](https://i.imgur.com/aRnEMBH.png)  
-![Imgur](https://i.imgur.com/LBUCe8U.png)
+![Home Page](https://i.imgur.com/kKx9Oar.png)
+![Login Page](https://i.imgur.com/2JxwdD2.png)
+![Products Index](https://i.imgur.com/h6ekJZz.png)
 
 ## Technologies Used
 - Django
