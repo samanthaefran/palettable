@@ -29,7 +29,7 @@ def products_index_by_tag(request, product_tag):
 def products_detail(request, id):
   product = Product.objects.get(id=id)
   colors = Color.objects.filter(product=id)
-  return render(request, 'products/detail.html', {'product': product, 'colors': colors})
+  return render(request, 'products/detail.html', {'product': product, 'main_app_colors': colors})
 
 def signup(request):
   error_message = ''

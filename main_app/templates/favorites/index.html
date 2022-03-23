@@ -5,7 +5,7 @@
 <div class="row">
 {% for product in favorites %}
     <div class="col s12 m3">
-        <div class="card">
+        <div class="card small">
             <a href="{% url 'products_detail' product.id %}">
             <div class="card-image">
                 <img src="{{product.image_link}}" alt="{{product.product_name}}">
