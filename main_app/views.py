@@ -92,3 +92,4 @@ class LookEdit(UpdateView):
   model = Look
   fields = ('name', 'description')
   template_name = 'looks/look_form.html'
+  success_url = '/looks/'
