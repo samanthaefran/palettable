@@ -13,10 +13,10 @@ footer {
     margin-top: 100px;
 }
 
-.card {
+/* .card {
     width: 50% !important;
     height: 50% !important;
-}
+} */
 
 .dot {
     height: 25px;
@@ -29,10 +29,10 @@ footer {
     font-size: 14pt !important;
 }
 
-.card-image {
+/* .card-image {
     max-width: 200px;
     max-height: 200px;
-}
+} */
 
 .back {
     color: black;
