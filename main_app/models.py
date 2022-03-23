@@ -25,10 +25,6 @@ class Color(models.Model):
     colour_name = models.CharField(max_length=150, blank=True, null=True)
     color_id = models.AutoField(primary_key=True)
 
-    class Meta:
-        managed = False
-        db_table = 'color'
-
     def __str__(self):
         return f'{self.hex_value} {self.colour_name}'
 
