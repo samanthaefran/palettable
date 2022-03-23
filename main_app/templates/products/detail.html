@@ -13,7 +13,7 @@
         <li style="list-style-type: none;">$ {{product.price}}</li>
         <li style="list-style-type: none;">{{product.product_description}}</li>
         <br />
-        <a href="{{product.website_link}}" class="btn-floating waves-effect waves-light deep-orange lighten-3"><i class="small material-icons">shopping_cart</i></a>
+        <a href="{{product.website_link}}" class="btn-floating waves-effect waves-light deep-orange lighten-3" target="_blank"><i class="small material-icons">shopping_cart</i></a>
         {% if user.is_authenticated %}
         <a href="{% url 'favorite_add' product.id user.id %}" class="btn-floating waves-effect waves-light deep-orange lighten-3" style="align-content:right !important"><i class="small material-icons">favorite_border</i></a>
         {% endif %}
