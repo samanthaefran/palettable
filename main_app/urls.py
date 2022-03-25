@@ -13,5 +13,7 @@ urlpatterns = [
   path('looks/', views.looks_list, name='looks_list'),
   path('looks/create', views.LookCreate.as_view(), name='looks_create'),
   path('looks/<int:look_id>/', views.looks_detail, name='looks_detail'),
-  path('looks/<int:look_id>/assoc_product/<int:product_id>/', views.assoc_product, name='assoc_product')
+  path('looks/<int:look_id>/assoc_product/<int:product_id>/', views.assoc_product, name='assoc_product'),
+  path('looks/<int:look_id>/unassoc_product/<int:product_id>/', views.unassoc_product, name='unassoc_product'),
+  path('looks/edit/<int:pk>/', views.LookEdit.as_view(), name='looks_edit')
 ]

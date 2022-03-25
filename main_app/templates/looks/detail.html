@@ -3,11 +3,14 @@
 {% block content %}
 
     <h1>{{look.name}}</h1>
-    <h4>{{look.description}}</h4>
+    <h6>{{look.description}}</h6>
 
     <div class="row">
         <div class="col s6">
-            <h3>Products</h3>
+            <div class="card-action">
+                <a href="{% url 'looks_edit' look.id %}">Edit Look</a>
+            </div>
+            <h4>Products</h4>
             {% if look.products.count %}
                 {% for product in look.products.all %}
                     <div class="card">
@@ -19,6 +22,12 @@
                                 {{ product.product_name }}
                             </span>
                         </div>
+                        <div class="card-action">
+                            <form action="{% url 'unassoc_product' look.id product.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn red">Remove</button>
+                            </form>
+                        </div>
                     </div>
                 {% endfor %}
             {% else %}
@@ -26,7 +35,7 @@
             {% endif %}
         </div>
         <div class="col s6">
-            <h3>Available Products from your faovrites!</h3>
+            <h4>Available Products from your favorites!</h4>
             {% if products.count %}
                 {% for product in products %}
                     <div class="card">
@@ -42,7 +51,6 @@
                             <form action="{% url 'assoc_product' look.id product.id %}" method="POST">
                                 {% csrf_token %}
                                 <button type="submit" class="btn green">Add</button>
-
                             </form>
                         </div>
                     </div>
