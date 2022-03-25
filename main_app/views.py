@@ -24,7 +24,7 @@ def products_index_by_tag(request, product_tag):
       products_list = Product.objects.filter(tags__icontains=product_tag)
   else: 
     return redirect('home')
-  return render(request, 'products_index.html', {'product': products_list})
+  return render(request, 'products_index.html', {'main_app_product': products_list})
 
 def products_detail(request, id):
   product = Product.objects.get(id=id)

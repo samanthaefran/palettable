@@ -17,7 +17,7 @@ class Product(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'Product'
+        db_table = 'product'
 
     def __str__(self):
         return f'{self.product_name} by {self.brand}'
