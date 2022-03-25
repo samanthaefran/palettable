@@ -4,7 +4,7 @@ from .models import Product, Color, Look
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 # Create your views here.
 
@@ -84,4 +84,12 @@ def assoc_product(request, look_id, product_id):
   look = Look.objects.get(id=look_id).products.add(product_id)
   return redirect('looks_detail', look_id=look_id)
 
+def unassoc_product(request, look_id, product_id):
+  look = Look.objects.get(id=look_id).products.remove(product_id)
+  return redirect('looks_detail', look_id=look_id)
 
+class LookEdit(UpdateView):
+  model = Look
+  fields = ('name', 'description')
+  template_name = 'looks/look_form.html'
+  success_url = '/looks/'
